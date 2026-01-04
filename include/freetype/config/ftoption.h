@@ -19,16 +19,17 @@
 #ifndef FTOPTION_H_
 #define FTOPTION_H_
 
+#if _WIN64
+#define FT_EXPORT( x )     __declspec( dllexport ) x
+#define FT_EXPORT_DEF( x ) __declspec( dllexport ) x
+#define FT_BASE( x )       __declspec( dllexport ) x
+#endif
 
 #include <ft2build.h>
 
 
 FT_BEGIN_HEADER
 
-// 添加DLL导出宏（64位Windows编译专用）
-#define FT_EXPORT( x )     __declspec( dllexport ) x
-#define FT_EXPORT_DEF( x ) __declspec( dllexport ) x
-#define FT_BASE( x )       __declspec( dllexport ) x
 
   /**************************************************************************
    *
